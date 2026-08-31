@@ -1,0 +1,4 @@
+# Browser exports and local/editor noise
+*.forge-progress.json
+.DS_Store
+Thumbs.db

@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A C++ and Python practice studio for interview patterns, low-level design, and machine learning foundations.">
+  <title>Forge — C++ & Python mastery</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Forge home">
+      <span class="brand-mark" aria-hidden="true">F</span>
+      <span>FORGE</span>
+    </a>
+    <nav class="primary-nav" aria-label="Primary navigation">
+      <button type="button" data-route="home">Home</button>
+      <button type="button" data-route="diagnostic">Diagnostic</button>
+      <button type="button" data-route="practice">Practice</button>
+      <button type="button" data-route="roadmap">Roadmap</button>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-button" type="button" id="theme-toggle" aria-label="Switch color theme" title="Switch color theme">◐</button>
+      <button class="button button-quiet" type="button" id="data-menu-button" aria-expanded="false" aria-controls="data-menu">Progress</button>
+      <div class="data-menu" id="data-menu" hidden>
+        <button type="button" id="export-progress">Export progress</button>
+        <label class="file-button" for="import-progress">Import progress<input type="file" id="import-progress" accept="application/json"></label>
+        <button type="button" id="reset-progress">Reset local progress</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" tabindex="-1">
+    <section class="view" id="home-view" data-view="home">
+      <div class="hero shell">
+        <div class="hero-copy">
+          <p class="eyebrow">A practice studio for serious builders</p>
+          <h1>Find the weak link.<br><em>Then forge it.</em></h1>
+          <p class="lede">Learn C++ and Python with a diagnostic that maps your actual skills, original interview-pattern drills, low-level design cases, and practical ML problems.</p>
+          <div class="hero-actions">
+            <button class="button button-primary" type="button" data-action="start-diagnostic">Take your 50-question diagnostic <span aria-hidden="true">→</span></button>
+            <button class="button button-secondary" type="button" data-route="practice">Explore the practice library</button>
+          </div>
+          <p class="microcopy">Every assessment is 60% coding and 40% multiple choice.</p>
+        </div>
+        <div class="hero-panel" aria-label="Assessment overview">
+          <div class="panel-label">Your first session</div>
+          <div class="meter-hero" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+          <ol class="session-steps">
+            <li><span>01</span> Take a broad 50-question baseline</li>
+            <li><span>02</span> Get a track-by-track skill map</li>
+            <li><span>03</span> Train a focused section</li>
+            <li><span>04</span> Pass a fresh gate and recalibrate</li>
+          </ol>
+          <div class="panel-stamp">C++ · Python · DSA · LLD · ML</div>
+        </div>
+      </div>
+
+      <section class="metrics shell" aria-label="Practice library statistics">
+        <article><strong id="question-count">260</strong><span>original practice variations</span></article>
+        <article><strong>50</strong><span>skills across five tracks</span></article>
+        <article><strong>60 / 40</strong><span>coding / MCQ in every exam</span></article>
+        <article><strong>∞</strong><span>fresh adaptive review loops</span></article>
+      </section>
+
+      <section class="shell section-block tracks-block">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">The curriculum</p>
+            <h2>Five tracks, one connected skill map.</h2>
+          </div>
+          <button class="text-button" type="button" data-route="roadmap">See the full roadmap <span aria-hidden="true">→</span></button>
+        </div>
+        <div class="track-grid" id="home-tracks"></div>
+      </section>
+
+      <section class="shell section-block how-it-works">
+        <div class="section-heading narrow-heading">
+          <p class="eyebrow">The loop</p>
+          <h2>A score only matters if it changes tomorrow’s practice.</h2>
+        </div>
+        <div class="loop-grid">
+          <article><span class="step-number">01</span><h3>Diagnose</h3><p>Start broad. The baseline samples C++, Python, DSA, LLD, and ML—not one vague “level.”</p></article>
+          <article><span class="step-number">02</span><h3>Deliberate practice</h3><p>Each item teaches recognition, invariants, implementation, edge cases, and complexity.</p></article>
+          <article><span class="step-number">03</span><h3>Prove the section</h3><p>Pass a 20-question section gate with separate coding and knowledge thresholds.</p></article>
+          <article><span class="step-number">04</span><h3>Recalibrate</h3><p>Get a fresh 20-question exam that checks integration, retention, and the next skill.</p></article>
+        </div>
+      </section>
+
+      <section class="shell notice-card">
+        <div>
+          <p class="eyebrow">Honest by design</p>
+          <h2>Static-site practice, not a pretend cloud judge.</h2>
+          <p>Write C++20 or Python 3.12 in the editor, use the supplied test ideas locally, and get a transparent approach review. GitHub Pages cannot securely hide tests or safely run arbitrary C++/Python, so nothing here claims to be a secure code runner.</p>
+        </div>
+        <button type="button" class="button button-secondary" data-route="practice">Open a coding drill</button>
+      </section>
+    </section>
+
+    <section class="view" id="diagnostic-view" data-view="diagnostic" hidden>
+      <div class="shell view-heading">
+        <p class="eyebrow">Assessment center</p>
+        <h1>Measure the shape of your skill.</h1>
+        <p class="lede">Start with the general diagnostic. After that, your section gates and recalibration exams draw fresh items around the skills that need evidence.</p>
+      </div>
+      <div class="shell" id="assessment-hub"></div>
+    </section>
+
+    <section class="view" id="practice-view" data-view="practice" hidden>
+      <div class="shell view-heading">
+        <p class="eyebrow">Practice library</p>
+        <h1>Train the pattern, not the answer.</h1>
+        <p class="lede">All prompts are independently authored. The DSA track is aligned to common interview-pattern coverage often associated with NeetCode, but it is not affiliated with or copied from NeetCode.</p>
+      </div>
+      <div class="shell practice-layout">
+        <aside class="practice-sidebar" aria-label="Practice filters">
+          <h2>Find your next drill</h2>
+          <label>Track<select id="practice-track-filter"></select></label>
+          <label>Skill<select id="practice-skill-filter"></select></label>
+          <label>Format<select id="practice-format-filter"><option value="all">Coding + multiple choice</option><option value="coding">Coding only</option><option value="mcq">Multiple choice only</option></select></label>
+          <label>Difficulty<select id="practice-difficulty-filter"><option value="all">Any difficulty</option><option value="1">Foundation</option><option value="2">Developing</option><option value="3">Capable</option><option value="4">Proficient</option><option value="5">Mastery</option></select></label>
+          <button class="button button-primary full-width" type="button" id="surprise-me">Choose a drill</button>
+        </aside>
+        <div class="practice-main">
+          <div class="library-toolbar"><span id="library-count" aria-live="polite"></span><button class="text-button" id="clear-filters" type="button">Clear filters</button></div>
+          <div id="practice-card" class="practice-card"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="view" id="roadmap-view" data-view="roadmap" hidden>
+      <div class="shell view-heading">
+        <p class="eyebrow">Your roadmap</p>
+        <h1>Mastery is a collection of receipts.</h1>
+        <p class="lede">Each track reports its own band and confidence. Your dashboard remembers results in this browser, and you can export them whenever you want.</p>
+      </div>
+      <div class="shell" id="roadmap-content"></div>
+    </section>
+
+    <section class="view" id="exam-view" data-view="exam" hidden>
+      <div class="shell exam-shell" id="exam-content"></div>
+    </section>
+  </main>
+
+  <div class="toast-region" aria-live="polite" aria-atomic="true" id="toast-region"></div>
+  <dialog id="confirmation-dialog" class="dialog"><form method="dialog"><h2 id="dialog-title">Are you sure?</h2><p id="dialog-message"></p><div class="dialog-actions"><button class="button button-secondary" value="cancel">Cancel</button><button class="button button-danger" id="dialog-confirm" value="confirm">Continue</button></div></form></dialog>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

@@ -20,9 +20,14 @@
       <button type="button" data-route="home">Home</button>
       <button type="button" data-route="diagnostic">Diagnostic</button>
       <button type="button" data-route="practice">Practice</button>
-      <button type="button" data-route="roadmap">Roadmap</button>
+      <button type="button" data-route="roadmap">Learning map</button>
     </nav>
     <div class="header-actions">
+      <div class="type-controls" role="group" aria-label="Text size">
+        <button class="type-button" type="button" id="text-decrease" aria-label="Decrease text size" title="Decrease text size">A−</button>
+        <output id="text-size-status" aria-live="polite">Text 100%</output>
+        <button class="type-button" type="button" id="text-increase" aria-label="Increase text size" title="Increase text size">A+</button>
+      </div>
       <button class="icon-button" type="button" id="theme-toggle" aria-label="Switch color theme" title="Switch color theme">◐</button>
       <button class="button button-quiet" type="button" id="data-menu-button" aria-expanded="false" aria-controls="data-menu">Progress</button>
       <div class="data-menu" id="data-menu" hidden>
@@ -70,9 +75,9 @@
         <div class="section-heading">
           <div>
             <p class="eyebrow">The curriculum</p>
-            <h2>Five tracks, one connected skill map.</h2>
+          <h2>Five tracks, one clickable learning route.</h2>
           </div>
-          <button class="text-button" type="button" data-route="roadmap">See the full roadmap <span aria-hidden="true">→</span></button>
+          <button class="text-button" type="button" data-route="roadmap">Open the learning map <span aria-hidden="true">→</span></button>
         </div>
         <div class="track-grid" id="home-tracks"></div>
       </section>
@@ -93,8 +98,8 @@
       <section class="shell notice-card">
         <div>
           <p class="eyebrow">Honest by design</p>
-          <h2>Static-site practice, not a pretend cloud judge.</h2>
-          <p>Write C++20 or Python 3.12 in the editor, use the supplied test ideas locally, and get a transparent approach review. GitHub Pages cannot securely hide tests or safely run arbitrary C++/Python, so nothing here claims to be a secure code runner.</p>
+          <h2>Practice locally. Ask for help when you choose.</h2>
+          <p>Write C++20 or Python 3.12 in the editor, use the supplied test ideas locally, and get transparent offline coaching. You can optionally connect your own local AI server for hints and draft feedback; no cloud key is shipped with this site. GitHub Pages cannot securely hide tests or safely run arbitrary C++/Python, so nothing here claims to be a secure code runner.</p>
         </div>
         <button type="button" class="button button-secondary" data-route="practice">Open a coding drill</button>
       </section>
@@ -133,9 +138,9 @@
 
     <section class="view" id="roadmap-view" data-view="roadmap" hidden>
       <div class="shell view-heading">
-        <p class="eyebrow">Your roadmap</p>
-        <h1>Mastery is a collection of receipts.</h1>
-        <p class="lede">Each track reports its own band and confidence. Your dashboard remembers results in this browser, and you can export them whenever you want.</p>
+        <p class="eyebrow">Your interactive learning map</p>
+        <h1>Mastery is a route you can inspect.</h1>
+        <p class="lede">Choose any stop to see its prerequisite, invariant, test case, and next drill. The route suggests a sequence without blocking curiosity.</p>
       </div>
       <div class="shell" id="roadmap-content"></div>
     </section>

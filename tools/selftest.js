@@ -100,6 +100,19 @@ ok('blank submission is rejected',
 ok('an alternative valid approach also passes',
   Checker.check(prob, 'python', 'def total(v):\n    return sum(v)').verdict === 'pass');
 
+/* Regression: comments must be stripped per line before whitespace is
+   collapsed, or one leading '#' swallows the whole submission and a correct
+   answer is scored zero. */
+ok('a solution that OPENS with a comment is still graded', (() => {
+  const withComment = '# walk once, accumulating\ndef total(v):\n    s = 0\n    for x in v:\n        s += x\n    return s';
+  return Checker.check(prob, 'python', withComment).verdict === 'pass';
+})(), 'a leading comment must not make the submission read as empty');
+
+ok('the same holds for C++ line comments', (() => {
+  const withComment = '// accumulate in one pass\nint total(vector<int>& v) {\n    int s = 0;\n    for (int x : v) s += x;\n    return s;\n}';
+  return Checker.check(prob, 'cpp', withComment).verdict === 'pass';
+})());
+
 ok('answer hidden in a comment does not count',
   Checker.check(prob, 'cpp', 'int total(vector<int>& v) {\n// for (int x : v) return x;\nint q=1; int w=2; int e=3;\n}').verdict !== 'pass');
 

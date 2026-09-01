@@ -565,13 +565,13 @@
           { re: 'while\\s*\\(|for\\s*\\(', hint: 'Binary search the candidate speeds.' },
           { re: 'max_element|max\\s*\\(|sort', hint: 'The upper bound of the search is the largest pile.' },
           { re: '\\+\\s*\\w+\\s*-\\s*1|ceil|\\+\\s*mid\\s*-', hint: 'Hours for one pile is the ceiling of pile / k.' },
-          { re: '<=\\s*h|<=\\s*\\w+|>\\s*h', hint: 'A speed is feasible when the total hours fit within h.' }
+          { re: '<=[\\s\\S]{0,24}\\bh\\b|>[\\s\\S]{0,24}\\bh\\b|hours?\\s*<=', hint: 'A speed is feasible when the total hours fit within h.' }
         ],
         python: [
           { re: 'while\\s|for\\s', hint: 'Binary search the candidate speeds.' },
           { re: 'max\\s*\\(|sort', hint: 'The upper bound of the search is the largest pile.' },
           { re: '\\+\\s*\\w+\\s*-\\s*1|ceil|-\\s*-', hint: 'Hours for one pile is the ceiling of pile / k.' },
-          { re: '<=\\s*h|<=\\s*\\w+|>\\s*h', hint: 'A speed is feasible when the total hours fit within h.' }
+          { re: '<=[\\s\\S]{0,24}\\bh\\b|>[\\s\\S]{0,24}\\bh\\b|hours?\\s*<=', hint: 'A speed is feasible when the total hours fit within h.' }
         ]
       },
       mcq: [

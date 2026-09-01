@@ -31,9 +31,14 @@
       return out;
     },
 
-    /* Did they actually write anything, or just submit the starter? */
-    isSubstantive(code, starter) {
-      const norm = s => (s || '').replace(/\s+/g, ' ').replace(/\/\/.*|#.*/g, '').trim();
+    /* Did they actually write anything, or just submit the starter?
+     *
+     * Comments must be stripped line by line BEFORE whitespace is collapsed.
+     * Collapsing first turns the whole submission into one line, and then a
+     * single `#` or `//` swallows everything after it — so a solution that
+     * opens with a comment was being read as empty and scored zero. */
+    isSubstantive(code, starter, lang) {
+      const norm = s => this.strip(s || '', lang).replace(/\s+/g, ' ').trim();
       const c = norm(code);
       if (c.length < 12) return false;
       if (starter && norm(starter) === c) return false;
@@ -53,7 +58,7 @@
       const notes = [];
       const starter = (problem.starter && problem.starter[lang]) || '';
 
-      if (!this.isSubstantive(code, starter)) {
+      if (!this.isSubstantive(code, starter, lang)) {
         return {
           verdict: 'empty', score: 0, passed: [], failed: [], tripped: [],
           notes: ['Write a solution first — the editor still holds the starter code.']

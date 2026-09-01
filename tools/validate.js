@@ -59,6 +59,11 @@ const SECTION_IDS = new Set(window.SECTIONS.map(s => s.id));
 const TIERS = new Set(window.TIERS);
 const DIFFS = new Set(['Easy', 'Medium', 'Hard']);
 
+/* Index now, before the checks: index() applies the deterministic answer-position
+   balancing, and the distribution check below must measure the balanced state the
+   learner actually sees, not the raw authored data. */
+window.DB.index();
+
 /* ---- unique ids ---- */
 const all = [].concat(window.DB.problems, window.DB.questions, window.DB.lessons, window.DB.flashcards);
 const seen = new Map();
